@@ -1,7 +1,8 @@
+import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:covid_app/constants.dart';
 import 'package:covid_app/providers/country_data.dart';
 import 'package:flutter/material.dart';
-
+import 'dart:math';
 import 'stats_card.dart';
 
 class StatsContainer extends StatefulWidget {
@@ -11,6 +12,57 @@ class StatsContainer extends StatefulWidget {
 
 class _StatsContainerState extends State<StatsContainer> {
   CountryData data = CountryData();
+  List<charts.Series> seriesList;
+
+  static List<charts.Series<Sales, String>> _createRandomData() {
+    final random = Random();
+    final deskTopData = [
+      Sales(
+        year: '2014',
+        sales: random.nextInt(100),
+      ),
+      Sales(
+        year: '2015',
+        sales: random.nextInt(100),
+      ),
+      Sales(
+        year: '2016',
+        sales: random.nextInt(100),
+      ),
+      Sales(
+        year: '2017',
+        sales: random.nextInt(100),
+      ),
+      Sales(
+        year: '2018',
+        sales: random.nextInt(100),
+      ),
+      Sales(
+        year: '2019',
+        sales: random.nextInt(100),
+      ),
+      Sales(
+        year: '2020',
+        sales: random.nextInt(100),
+      ),
+    ];
+    return [
+      charts.Series<Sales, String>(
+        id: 'Sales',
+        domainFn: (Sales sales, _) => sales.year,
+        measureFn: (Sales sales, _) => sales.sales,
+        data: deskTopData,
+      )
+    ];
+  }
+
+  barChart() {
+    charts.BarChart(
+      seriesList,
+      animate: true,
+      vertical: true,
+    );
+  }
 
   fetchData() async {
     await data.fetchCountryData();
@@ -21,6 +73,7 @@ class _StatsContainerState extends State<StatsContainer> {
   void initState() {
     super.initState();
     fetchData();
+    seriesList = _createRandomData();
   }
 
   @override
@@ -89,7 +142,20 @@ class _StatsContainerState extends State<StatsContainer> {
                   ),
                 ],
               ),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: barChart(),
+                ),
+              ),
             ],
           );
   }
+}
+
+class Sales {
+  final String year;
+  final int sales;
+
+  Sales({this.year, this.sales});
 }
