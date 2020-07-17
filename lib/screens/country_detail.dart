@@ -22,9 +22,12 @@ class CountryDetail extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              background: Image.network(
-                data['countryInfo']['flag'],
-                fit: BoxFit.cover,
+              background: Hero(
+                tag: data['countryInfo']['flag'],
+                child: Image.network(
+                  data['countryInfo']['flag'],
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

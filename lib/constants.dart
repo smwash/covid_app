@@ -9,3 +9,9 @@ const kActiveColor = Color(0xff8F8EE3);
 const kDeathColor = Colors.redAccent;
 const kRecoveredColor = Color(0xff7BE9D1);
 const kCriticalColor = Color(0xffFF6381);
+
+const kBoxShadow = BoxShadow(
+  color: Colors.black12,
+  offset: Offset(0, 10),
+  blurRadius: 5.0,
+);
