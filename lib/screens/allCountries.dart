@@ -1,6 +1,7 @@
 import 'package:covid_app/constants.dart';
 import 'package:covid_app/providers/country_data.dart';
 import 'package:covid_app/screens/country_detail.dart';
+import 'package:covid_app/screens/searchpage.dart';
 import 'package:covid_app/widgets/appbar_grid.dart';
 import 'package:flutter/material.dart';
 
@@ -79,7 +80,12 @@ class _AllCountriesState extends State<AllCountries> {
                           Icons.search,
                           color: Colors.white,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          showSearch(
+                            context: context,
+                            delegate: Search(countries: data.countries),
+                          );
+                        }),
                   ],
                   flexibleSpace: FlexibleSpaceBar(
                     background: Image.asset(
