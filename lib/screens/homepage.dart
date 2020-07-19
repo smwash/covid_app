@@ -1,3 +1,4 @@
+import 'package:covid_app/screens/allCountries.dart';
 import 'package:covid_app/widgets/appbar_title.dart';
 import 'package:covid_app/widgets/emergency_btns.dart';
 import 'package:covid_app/widgets/practices_card.dart';
@@ -67,7 +68,14 @@ class _HomePageState extends State<HomePage> {
                 AppBarTile(
                   text: 'Countries',
                   icon: Icons.map,
-                  press: () {},
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AllCountries(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

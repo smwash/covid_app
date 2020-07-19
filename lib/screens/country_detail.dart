@@ -1,4 +1,6 @@
+import 'package:covid_app/widgets/myChart.dart';
 import 'package:covid_app/widgets/stats_card.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -136,6 +138,7 @@ class CountryDetail extends StatelessWidget {
                     ],
                   ),
                 ),
+                BarChartSample3(),
               ],
             ),
           ),

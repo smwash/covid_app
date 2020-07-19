@@ -4,8 +4,8 @@ import 'country_detail.dart';
 
 class Search extends SearchDelegate {
   final List countries;
-
   Search({@required this.countries});
+
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
