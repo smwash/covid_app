@@ -1,7 +1,10 @@
 import 'package:covid_app/screens/allCountries.dart';
+import 'package:covid_app/screens/faq_screen.dart';
+import 'package:covid_app/screens/stats_screen.dart';
 import 'package:covid_app/widgets/appbar_title.dart';
 import 'package:covid_app/widgets/emergency_btns.dart';
 import 'package:covid_app/widgets/practices_card.dart';
+import 'package:covid_app/widgets/stats_cards.dart';
 
 import '../constants.dart';
 import '../widgets/appbar_grid.dart';
@@ -53,17 +56,38 @@ class _HomePageState extends State<HomePage> {
                 AppBarTile(
                   text: 'Symptoms',
                   icon: Icons.sentiment_dissatisfied,
-                  press: () {},
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FaqsScreen(),
+                      ),
+                    );
+                  },
                 ),
                 AppBarTile(
                   text: 'Prevention',
                   icon: Icons.local_hospital,
-                  press: () {},
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FaqsScreen(),
+                      ),
+                    );
+                  },
                 ),
                 AppBarTile(
                   text: 'Reports',
                   icon: Icons.pie_chart,
-                  press: () {},
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => StatsScreen(),
+                      ),
+                    );
+                  },
                 ),
                 AppBarTile(
                   text: 'Countries',
